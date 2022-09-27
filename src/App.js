@@ -1,15 +1,20 @@
 // import { Routes, Route, Link } from "react-router-dom";
 import './App.css';
-import {PublicQuestions} from './public-questions'
-import {Route, Routes} from "react-router-dom"
+import Navbar from './Navbar/Navbar';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Login from './Login';
 import {ReadAnswers} from "./routes/read-answers"
+import {PublicQuestions} from './public-questions'
+
 
 function App() {
   return (
-    <div className="App">
-        <Routes> 
-        <Route path="/" element={<PublicQuestions />}/>
-        <Route path="/questions/:qId" element={<ReadAnswers token={'2dc43cc797e571669d4ee81fb0fbbea3bb8de2c1'}/>} />
+    <Router>
+          <Navbar />
+          <Routes>
+            <Route path="/"
+            element={<PublicQuestions />}/>
+            <Route path="/questions/:qId" element={<ReadAnswers token={'2dc43cc797e571669d4ee81fb0fbbea3bb8de2c1'}/>} />
           <Route
             path="*"
             element={
@@ -18,9 +23,13 @@ function App() {
               </main>
             }
           /> 
-      </Routes>
-    </div>
-  );
+          </Routes>
+          <Routes>
+            <Route path="/Login"
+            element={<Login />} />
+          </Routes>          
+    </Router>
+  )
 }
 
 export default App;
