@@ -3,15 +3,19 @@ import { useState } from "react"
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
 
-export const AnswersToQuestions = ({token}) => {
-    const [answers, setAnswers] = useState('')
-    const {ansId} = useParams()
+export const AnswersToQuestions = ({qId, token}) => {
+    const [answers, setAnswers] = useState([])
 
     useEffect(() => {
         axios
-        .get('https://team-question-box.herokuapp.com/answers/')
-        .then((res) => setAnswers(res.data))
-    }, [])
+        .get(`https://team-question-box.herokuapp.com/questions/${qId}`, {
+            headers: {
+                Authorization: `Token ${token}`,
+            },
+        })
+        .then((res) => setAnswers(res.data.answers))
+        
+    }, [qId, token])
 
 if (answers) {
     return(

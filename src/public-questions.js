@@ -28,7 +28,6 @@ export const PublicQuestions = () => {
                     <h1>{questionList.question_title}</h1></Link>
                     <p>{questionList.question_field}</p>
                     <p className='showUser' style={{ fontSize:'.5em' }}>By: {questionList.user}</p>
-                    {/* make this clickable to go to their profile page */}
                 </div>))}
             </div>
         </>)}
