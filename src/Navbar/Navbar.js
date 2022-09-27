@@ -11,11 +11,11 @@ const Navbar = () => {
                 <NavLink to="/about" activeStyle>
                     About
                 </NavLink>
-                <NavLink to="/browse" activeStyle>
-                    Browse
+                <NavLink to="/search" activeStyle>
+                    Search
                 </NavLink>
             <NavBtn>
-                <NavBtnLink to="sign-in">Sign In</NavBtnLink>
+                <NavBtnLink to="/Login">Sign In</NavBtnLink>
             </NavBtn>   
             </NavMenu>
 
