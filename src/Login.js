@@ -28,8 +28,8 @@ const Login = () => {
             password: password,
         })
         .then((res) => {
-            const token = res.data.auth_token
-            setAuth(username, token)
+            // const token = res.data.auth_token
+            // setAuth(username, token)
         })
         .catch((error) => {
             setError(error.message)
