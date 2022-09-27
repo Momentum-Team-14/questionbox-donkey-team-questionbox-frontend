@@ -19,9 +19,9 @@ export const PublicQuestions = () => {
     if (questions){
         return (
             <>
-            <div className="usersQuestions" style={{border:'solid' ,borderColor: 'white', background: 'grey'}}>
+            <div className="usersQuestions" style={{width: '50%', margin: 'auto', padding:'10px', alignContent: 'center', border:'solid', borderColor: 'grey'}}>
             {questions.map((questionList) => (
-                <div>
+                <div style={{borderTop: 'dashed' , borderColor:'grey'}}>
                     <Link
                         to={`/questions/${questionList.pk}`}
                         key={questionList.pk}>

@@ -2,49 +2,34 @@ import { useEffect } from 'react'
 import { useState } from "react"
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
-// import { Routes, Route, useParams } from 'react-router-dom';
+import { AnswersToQuestions } from './answer-list'
 
 export const ReadAnswers = ({token}) => {
-    const [answers, setAnswers] = useState('')
-    const [oneQuestion, setOneQuestion] = useState()
+    const [oneQuestion, setOneQuestion] = useState('')
     const {qId} = useParams()
 
     useEffect(() => {
         axios
-        .get(`https://team-question-box.herokuapp.com/questions/${qId}`)
+        .get(`https://team-question-box.herokuapp.com/questions/${qId}`, {
+            headers: {
+                Authorization: `Token ${token}`,
+            },
+        })
         .then((res) => setOneQuestion(res.data))
         
-    }, [qId])
+    }, [qId, token])
 
-    useEffect(() => {
-        axios
-        .get(`https://team-question-box.herokuapp.com/answers/`)
-        .then((res) => setAnswers(res.data))
-        
-    }, [])
-
-    // if (oneQuestion, answers){
         return (
             <>
                 <div>
-                    <div className="Question-And-Answers">
-                        <p>hi</p>
-                    {/* {oneQuestion((details) => 
-                        <div>
-                            <h1>{details.question_title}</h1>
-                            <p>{details.question_field}</p>
-                        </div>)}
-                    
-                    {answers.map((ansDetails) => 
-                        <div style={{border:'solid', borderColor:'black'}}>
-                        <p className='showUser' style={{fontSize:'.5em' }}>{ansDetails.user}</p>
-                        <p>{ansDetails.answser_field}</p>
+                    <div className="Question-Details">
+                        <div style={{width:'50%', margin:'auto'}}>
+                            <h1 style={{fontStretch:'extra-expanded'}}>{oneQuestion.question_title}</h1>
+                            <p style={{fontSize:'.75rem'}}>From User: <strong>{oneQuestion.user}</strong></p>
+                            <p style={{font:'message-box'}}>{oneQuestion.question_field}</p>
+                            <AnswersToQuestions token={'2dc43cc797e571669d4ee81fb0fbbea3bb8de2c1'}/>
                         </div>
-                    )}*/}
                     </div> 
                 </div> 
-            </>
-    )
-    // }
+            </>)
 }
-{/* make this clickable to go to their profile page */}
