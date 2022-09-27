@@ -1,9 +1,10 @@
-import logo from './logo.svg';
+// import { Routes, Route, Link } from "react-router-dom";
 import './App.css';
 import Navbar from './Navbar/Navbar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { TestPublicQuestions } from './TestPublicQuestions';
 import Login from './Login';
+import {ReadAnswers} from "./routes/read-answers"
+import {PublicQuestions} from './public-questions'
 
 
 function App() {
@@ -12,7 +13,16 @@ function App() {
           <Navbar />
           <Routes>
             <Route path="/"
-            element={<TestPublicQuestions />} />
+            element={<PublicQuestions />}/>
+            <Route path="/questions/:qId" element={<ReadAnswers token={'2dc43cc797e571669d4ee81fb0fbbea3bb8de2c1'}/>} />
+          <Route
+            path="*"
+            element={
+              <main>
+                <p>There's nothing here!</p>
+              </main>
+            }
+          /> 
           </Routes>
           <Routes>
             <Route path="/Login"
