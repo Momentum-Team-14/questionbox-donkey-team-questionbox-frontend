@@ -18,8 +18,8 @@ const AskQuestion = ({ token }) => {
         axios
             .post('https://team-question-box.herokuapp.com/questions/', 
             {
-                title: title,
-                question: askQuestionText,
+                question_title: title,
+                question_field: askQuestionText,
             },
             {
                 headers: {
@@ -43,7 +43,7 @@ const AskQuestion = ({ token }) => {
             if (inputType === 'question_title') {
                 setTitle(e.target.value)
             }
-            if (inputType === 'question-field') {
+            if (inputType === 'question_field') {
                 setAskQuestionText(e.target.value)
             }
         } 
