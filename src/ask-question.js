@@ -1,9 +1,10 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import { e } from 'react'
-import { username, password } from 'react'
+import { username, password, label } from 'react'
 import { Input } from './Forms'
 import { Navigate } from 'react-router-dom'
+
 
 
 
@@ -54,7 +55,7 @@ const AskQuestion = ({ token }) => {
                     <form onSubmit={handleSubmit}>
                 <div className="inputGp">
                     <h1>Ask a Question</h1>
-                    <label>Title:</label>
+                    <label>Question Title:</label>
                     <input 
                         placeholder="Type the TITLE of your question here..." 
                         onChange={(e) => {
@@ -63,7 +64,7 @@ const AskQuestion = ({ token }) => {
                     />
                 </div>
                 <div className="inputGp">
-                    <label>Question:</label>
+                    <label>Ask Question:</label>
                     <textarea 
                         placeholder="Type your QUESTION here..." 
                         onChange={(e) => {
