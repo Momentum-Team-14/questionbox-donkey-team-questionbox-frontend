@@ -4,80 +4,49 @@ import { e } from 'react'
 import { username, password } from 'react'
 import { Input } from './Forms'
 import { Navigate } from 'react-router-dom'
-export default 'ask-question'
 
 
-export const AskQuestion = ({ token }) => {
+
+const AskQuestion = ({ token }) => {
     const [title, setTitle] = useState('')
     const [askQuestionText, setAskQuestionText] = useState('')
     const [submitted, setSubmitted] = useState(false)
     const [error, setError] = useState(false)
-
-    const Register = () => {
-        const [username, setUsername] = useState('')
-        const [password, setPassword] = useState('') 
-    }
-
-    const handlesubmit = (e) => {
-        e.preventDefault()
-        console.log('handle submit')
-        axios.post('https://team-question-box.herokuapp.com/questions', {
-            username: username,
-            password: password,
-        }
-        )
-        .then((res) => console.log(res)) 
-    }
-
-    // function AskQuestion ({token}) {
-    //     const [title, setTitle] = useState("")
-    //     const [askQuestionText, setAskQuestionText] = useState("")
         
-        useEffect(() => {
-            console.log('useEffect runs')
-            axios.post('https://team-question-box.herokuapp.com/questions', {
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        axios
+            .post('https://team-question-box.herokuapp.com/questions/', 
+            {
                 title: title,
                 question: askQuestionText,
-            }, {
-                headers: {Authorization: `Token ${token}`
-                }
-            }) 
-            .then ((res) => setAskQuestionText (res))
-        }, [token]) 
-        
-        const handleSubmit = (e) => {
-            e.preventDefault()
-            axios
-                .post('https://team-question-box.herokuapp.com/questions', 
-                {
-                    title: title,
-                    question: askQuestionText,
+            },
+            {
+                headers: {
+                    Authorization: `Token ${token}`, 
                 },
-                {
-                    headers: {
-                        Authorization: `Token ${token}`, 
-                    },
-                }
-                )
-                .then((res) => {
-                    setSubmitted(true)
-                    setTitle('')
-                    setAskQuestionText('')
-                }) 
-                .catch((err) => setError(err.response.data.error))
             }
+            )
+            .then((res) => {
+                setSubmitted(true)
+                setTitle('')
+                setAskQuestionText('')
+            }) 
+            .catch((err) => console.log(err))
+        }
             
-            if (submitted) {
-                return <Navigate to="/questions" />
+        // if (submitted) {
+        //     return <Navigate to="/questions/" />
+        // }
+        
+        const handleChange = (inputType, e) => {
+            if (inputType === 'question_title') {
+                setTitle(e.target.value)
             }
-            
-            const handleChange = (inputType, e) => {
-                if (inputType === 'question_title') {
-                    setTitle(e.target.value)
-                }
-                if (inputType === 'question-field') {
-                    setAskQuestionText(e.target.value)
-                }} 
+            if (inputType === 'question-field') {
+                setAskQuestionText(e.target.value)
+            }
+        } 
 
         return (
             <div className="askQuestionPage"> 
@@ -110,3 +79,5 @@ export const AskQuestion = ({ token }) => {
             </div>
         )
         }
+
+export default AskQuestion
