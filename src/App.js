@@ -1,25 +1,18 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+// import { Routes, Route } from "react-router-dom" ; 
+import AskQuestion from "./ask-question";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+  <div>
+      <div>
+        <AskQuestion token={'2dc43cc797e571669d4ee81fb0fbbea3bb8de2c1'}/>
+      </div> 
+      {/* <Routes>
+        <Route path="ask-question" element={<AskQuestion />} />
+      </Routes> */}
+  </div>
+)}
 
 export default App;

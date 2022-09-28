@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,87 @@
   to {
     transform: rotate(360deg);
   }
+} */
+nav { 
+  margin: 0;
+  width: 100%;
+  height: green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-decoration: none;
 }
+.askQuestionPage {
+
+  width: 100%;
+  height: calc(100vh - 80vh);
+  display: grid;
+  place-items: center;
+}
+
+.aqContainer {
+  width: 700px;
+  height: auto;
+  padding: 20px;
+  background-color: black;
+  border-radius: 12px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+
+}
+
+/* a {
+  color: white;
+  text-decoration: none;
+  margin: 10px;
+  font-size: 25px;
+} */
+
+.aqContainer H1 {
+  text-align: center;
+  margin-top: 5px;
+}
+
+.aqContainer label {
+  font-size: 25px;
+}
+
+/* .aqContainer .inputQ {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+} */
+
+/* .inputQ input,
+.inputQ textarea {
+  font-size: 18px;
+  border: none;
+  border-radius: 2 px;
+  padding: 5px;
+} */
+
+/* .inputQ input {
+  height: 40px;
+} */
+
+/* .inputQ textarea {
+  height: 50px;
+} */
+
+.aqContainer button {
+  margin-top: 20px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+input, 
+textarea {
+  margin-top: 5px;
+  width: 100%;
+}
+
