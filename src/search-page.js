@@ -4,7 +4,7 @@ import axios from 'axios'
 import {Link} from 'react-router-dom'
 import PublicQuestions from './public-questions'
 
-export const QuestionsSearchPage 
+export const QuestionsSearchPage =() => {
     const [questions, setQuestions] = useState('')
     
     useEffect(() => {
@@ -12,7 +12,7 @@ export const QuestionsSearchPage
     .get('https://team-question-box.herokuapp.com/questions/', )
     .then((res) => 
             setQuestions(res.data)) 
-    }, []  
+    }, [])
     
 
     if (questions) {
@@ -30,7 +30,6 @@ export const QuestionsSearchPage
                         <div style={{marginLeft:'100px'}}>
                         </div>
                     </div>
-                
             </div>    
         </>
-    )}
+    )}}

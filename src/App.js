@@ -9,10 +9,11 @@ import { ProfilePage } from './routes/profile-page';
 import useLocalStorageState from 'use-local-storage-state';
 import { Register } from './Register';
 import { SearchPage } from './search-page';
+import axios from 'axios';
 
 function App() {
   const [token, setToken] = useLocalStorageState('ExtraPointersToken', null )
-  const [username, setUsername] =  useLocalStorageState('ExtraPointersUsername', null)
+  const [username, setUsername] =  useLocalStorageState('ExtraPointersUsername', '')
 
   const setAuth = (username, token) => {
     setToken(token)
@@ -20,16 +21,36 @@ function App() {
 
   }
 
+  const handleLogout = () => {
+    // send request to log out on the server
+    axios
+      .post(
+        'https://team-question-box.herokuapp.com/auth/token/logout',
+        {},
+        {
+          headers: {
+            Authorization: `Token ${token}`,
+          },
+        }
+      )
+      .then(() =>
+        // log out in React
+        setAuth('', null)
+      )
+  }
+
+  const isLoggedIn = username && token
+
   return (
     <>
     <BrowserRouter>
       <header>
-        <Navbar />
+      {<Navbar handleLogout={handleLogout} token={token} isLoggedIn={isLoggedIn} />}
       </header>
           <Routes>
             <Route path="/"
-            element={<PublicQuestions token={'2dc43cc797e571669d4ee81fb0fbbea3bb8de2c1'}/>}/>
-            <Route path="/questions/:qId" element={<ReadAnswers token={'2dc43cc797e571669d4ee81fb0fbbea3bb8de2c1'}/>} />
+            element={<PublicQuestions token={token} isLoggedIn={isLoggedIn}/>}/>
+            <Route path="/questions/:qId" element={<ReadAnswers token={token} isLoggedIn={isLoggedIn}/>} />
           <Route
             path="*"
             element={
@@ -39,10 +60,9 @@ function App() {
             }
           /> 
             <Route path="/Login"
-            element={<Login setAuth={setAuth} />} />
-            <Route path='/user/questions' element={<ProfilePage  token={'2dc43cc797e571669d4ee81fb0fbbea3bb8de2c1'}/>} />
-            <Route path="/Login/Register" element={<Register />} />
-            <Route path='/questions' element={<SearchPage />} />
+            element={<Login setAuth={setAuth} isLoggedIn={isLoggedIn} />} />
+            <Route path='/user/questions' element={<ProfilePage  token={token} isLoggedIn={isLoggedIn}/>} />
+            <Route path="/Login/Register" element={<Register setAuth={setAuth} isLoggedIn={isLoggedIn} />} />
           </Routes>          
     </BrowserRouter>
     </>

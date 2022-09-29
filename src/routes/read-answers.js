@@ -40,10 +40,10 @@ export const ReadAnswers = ({token}) => {
                                 <h1 style={{textAlign:'center'}}>Answers</h1>
                             </div>
                             <div>
-                                <AnswersToQuestions qId={qId} token={'2dc43cc797e571669d4ee81fb0fbbea3bb8de2c1'}/>
+                                <AnswersToQuestions qId={qId} token={token}/>
                             </div>
                             <div>
-                                <PostAnswers qId={qId} token={'2dc43cc797e571669d4ee81fb0fbbea3bb8de2c1'}/>
+                                <PostAnswers qId={qId} token={token}/>
                             </div>
                         </div>
                     </div> 
