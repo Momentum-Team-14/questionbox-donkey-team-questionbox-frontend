@@ -37,8 +37,8 @@ const Navbar = ({ handleLogout, token}) => {
             to = "/user/questions"
             style={{textDecoration:'none', color:'white'}}
             >
-        <p style={{textAlign:'center', marginRight:'10px'}}>Hello <DisplayUser token={token} />
-        </p></Link>
+        <p style={{textAlign:'center', marginRight:'10px'}}>Hello</p> <DisplayUser token={token} />
+        </Link>
         </Nav>
         </>
     )

@@ -1,9 +1,11 @@
 import { useEffect } from 'react'
 import { useState } from "react"
 import axios from 'axios'
+import { Link } from 'react-router-dom'
+import { Route, Routes} from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 
-export const AnswersToQuestions = ({qId, token}) => {
+export const AnswersToQuestions = ({qId, token, isLoggedIn}) => {
     const [answers, setAnswers] = useState([])
 
     useEffect(() => {
@@ -16,6 +18,9 @@ export const AnswersToQuestions = ({qId, token}) => {
         .then((res) => setAnswers(res.data.answers))
         
     }, [qId, token])
+
+
+
 
 if (answers) {
     return(
@@ -30,4 +35,7 @@ if (answers) {
     </div>
     </>
     )}
+
+
+
 }

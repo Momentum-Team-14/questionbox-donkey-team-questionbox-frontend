@@ -30,10 +30,10 @@ if (userAnswers) {
                 {userAnswers.map((listOfAnswers) => (
                 <div>
                     <div>
-                        <ShowQuestions qId={listOfAnswers.question} token={'2dc43cc797e571669d4ee81fb0fbbea3bb8de2c1'}/>
+                        <ShowQuestions qId={listOfAnswers.question} token={token}/>
                     </div>
                     <div style={{textAlign:'center', marginLeft:'30px', borderTop: 'solid', borderLeft:'solid', borderBottom:'solid', borderRight:'solid', borderColor:'grey'}}>
-                        <p>Your Answer:</p>
+                        <p style={{fontWeight:'bold'}}>Your Answer</p>
                         <p><mark>{listOfAnswers.answer_field}</mark></p>
                     </div>
                 </div>

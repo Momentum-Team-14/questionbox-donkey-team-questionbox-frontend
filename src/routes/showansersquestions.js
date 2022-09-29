@@ -18,7 +18,7 @@ useEffect(() => {
 
     return (
         <div style={{textAlign:'center', marginLeft:'30px', borderTop: 'solid', borderLeft:'solid', borderBottom:'solid', borderRight:'solid', borderColor:'grey'}}>
-        <p >Question:</p>
+        <p style={{fontWeight:'bold'}}>Question</p>
         <p>{showQ.question_field}</p>
         </div>
     )

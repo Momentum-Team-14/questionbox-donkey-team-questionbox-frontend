@@ -2,11 +2,11 @@ import { useEffect } from 'react'
 import { useState } from "react"
 import axios from 'axios'
 // import { ReadAnswers } from './routes/readanswers'
-import { Link } from 'react-router-dom';
+import { Link, Route, Routes } from 'react-router-dom';
 import { AskQuestion } from './ask-question'
 
 
-export const PublicQuestions = ({token}) => {
+export const PublicQuestions = ({token, isLoggedIn}) => {
     const [questions, setQuestions] = useState('')
     
     useEffect(() => {
@@ -16,6 +16,8 @@ export const PublicQuestions = ({token}) => {
             setQuestions(res.data))    
     }, [])
     
+
+
     
     if (questions){
         return (
