@@ -1,9 +1,10 @@
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom"
+import { Link, useNavigate, Switch } from "react-router-dom"
 import { Register } from "./Register";
 
 export const Login = ({setAuth}) => {
+    const navigate = useNavigate()
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
@@ -21,11 +22,16 @@ export const Login = ({setAuth}) => {
             console.log(res.data)
             const token = res.data.auth_token
             setAuth(username, token)
+            navigate('/')
+
         })
         .catch((error) => {
             console.log(error)
-            alert('Incorrect username or password, try again.')
-            setError(error.message)
+            if (error.response.data.username)
+            setError(error.response.data.username);
+        
+        if (error.response.data.password)
+            setError(error.response.data.password)
         })
         console.log(username, password)
     }
@@ -63,7 +69,7 @@ export const Login = ({setAuth}) => {
             <br />
             Not a member?
             <div className="register-link">
-                <Link to="./Register">Sign Up</Link>
+            <a href="./Register">Sign Up</a>
             </div>
         
         </>
