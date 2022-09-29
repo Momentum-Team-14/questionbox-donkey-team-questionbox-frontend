@@ -22,15 +22,16 @@ export const AllUserQuestions = ({token}) => {
         return (
         <>
             <div>
-                <h1 style={{marginLeft:'30px'}}> Your Questions </h1>
+                <h1 style={{ color:'green', textAlign:'center'}}> Your Questions </h1>
                 <div style={{height: '500px', overflow:'scroll'}}>
                     {userQuestions.map((questionsForUser) => (
                         <div>
                             <div style={{textAlign:'center', marginLeft:'30px', borderTop: 'dashed', borderLeft:'solid', borderBottom:'dashed', borderRight:'solid', borderColor:'grey'}}>
                                 <Link 
                                 to={`/questions/${questionsForUser.pk}`}
-                                key={questionsForUser.pk}>
-                                <h1>{questionsForUser.question_title}</h1></Link>
+                                key={questionsForUser.pk}
+                                style={{textDecoration:'none'}}>
+                                <h1 style={{color:'green'}}>{questionsForUser.question_title}</h1></Link>
                                 <p>{questionsForUser.question_field}</p>
                             </div>
                         </div>

@@ -20,9 +20,9 @@ export const AnswersToQuestions = ({qId, token}) => {
 if (answers) {
     return(
     <>
-    <div id={answers.question} style={{margin:'50px'}}>
+    <div id={answers.question}>
     {answers.map((ansDetails) => (
-        <div style={{border:'solid', borderColor:'black', fontFamily:'fantasy', minHeight:'3rem'}}>
+        <div style={{border:'solid', borderColor:'black', fontFamily:'fantasy', minHeight:'3rem', width:'500px', margin:'auto', marginBottom:'20px'}}>
         <p className='showUser' style={{fontSize:'.75em', float: 'left', margin: '10px'}}>From User: <strong>{ansDetails.user}</strong></p>
         <p>{ansDetails.answer_field}</p>
         </div>

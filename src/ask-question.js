@@ -4,11 +4,12 @@ import { e } from 'react'
 import { username, password, label } from 'react'
 import { Input } from './Forms'
 import { Navigate } from 'react-router-dom'
+import { click } from '@testing-library/user-event/dist/click'
 
 
 
 
-const AskQuestion = ({ token }) => {
+export const AskQuestion = ({ token }) => {
     const [title, setTitle] = useState('')
     const [askQuestionText, setAskQuestionText] = useState('')
     const [submitted, setSubmitted] = useState(false)
@@ -49,6 +50,10 @@ const AskQuestion = ({ token }) => {
             }
         } 
 
+        const clickConfirm =() => {
+            alert('Thanks for your question')
+        };
+
         return (
             <div className="askQuestionPage"> 
                 <div className="aqContainer">
@@ -73,7 +78,10 @@ const AskQuestion = ({ token }) => {
                     />
                 </div>
                         <div>
-                        <button onClick={handleSubmit}>Submit Question</button>
+                        <button onClick={() => {
+                            handleSubmit();
+                            clickConfirm();}}
+                        >Submit Question</button>
                         </div>
                     </form>
                 </div>
@@ -81,4 +89,4 @@ const AskQuestion = ({ token }) => {
         )
         }
 
-export default AskQuestion
+

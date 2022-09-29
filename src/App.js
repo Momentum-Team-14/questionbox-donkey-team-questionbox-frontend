@@ -14,7 +14,7 @@ function App() {
           <Navbar />
           <Routes>
             <Route path="/"
-            element={<PublicQuestions />}/>
+            element={<PublicQuestions token={'2dc43cc797e571669d4ee81fb0fbbea3bb8de2c1'}/>}/>
             <Route path="/questions/:qId" element={<ReadAnswers token={'2dc43cc797e571669d4ee81fb0fbbea3bb8de2c1'}/>} />
           <Route
             path="*"

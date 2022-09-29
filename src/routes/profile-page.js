@@ -24,7 +24,7 @@ export const ProfilePage = ({token}) => {
         <>
         <div>
             <div style={{textAlign:'center'}}>
-                <h1> Hello {userProfile.user}</h1>
+                <h1 style={{color:'green'}}> Hello {userProfile.user}</h1>
             </div>
             <div style={{ display:'flex',  flexDirection:'row'  }}>
                 <div>
