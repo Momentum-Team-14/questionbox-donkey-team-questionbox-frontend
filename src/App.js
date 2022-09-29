@@ -55,7 +55,7 @@ function App() {
             path="*"
             element={
               <main>
-                <p>There's nothing here!</p>
+                <p>  This is a Fantasy Football Question and Answer site that allows any user to view previously asked questions and/or Create a User Login so Logged In users may Post Questions and Answers  </p>
               </main>
             }
           /> 
