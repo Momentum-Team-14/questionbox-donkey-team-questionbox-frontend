@@ -1,8 +1,11 @@
 import { DisplayUser } from '../routes/display-user';
 import {Nav, NavLink, Bars, NavMenu, NavBtn, NavBtnLink} from './NavbarElements'
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom'
+
 
 const Navbar = () => {
+    
+
     return (  
         <>
         <Nav>
