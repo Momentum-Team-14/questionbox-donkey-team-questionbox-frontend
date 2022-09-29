@@ -4,7 +4,8 @@ import { e } from 'react'
 import { username, password, label } from 'react'
 import { Input } from './Forms'
 import { Navigate } from 'react-router-dom'
-import { click } from '@testing-library/user-event/dist/click'
+export default 'AskQuestion'
+// import { click } from '@testing-library/user-event/dist/click'
 
 
 

@@ -8,6 +8,7 @@ import {PublicQuestions} from './public-questions'
 import { ProfilePage } from './routes/profile-page';
 import useLocalStorageState from 'use-local-storage-state';
 import { Register } from './Register';
+import { QuestionsSearchPage } from './search-page';
 import axios from 'axios';
 
 function App() {
@@ -58,6 +59,7 @@ function App() {
               </main>
             }
           /> 
+            <Route path='/searchquestion' element={<QuestionsSearchPage token={token} isLoggedIn={isLoggedIn} /> } /> 
             <Route path="/Login"
             element={<Login setAuth={setAuth} isLoggedIn={isLoggedIn} />} />
             <Route path='/user/questions' element={<ProfilePage  token={token} isLoggedIn={isLoggedIn}/>} />
