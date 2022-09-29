@@ -15,6 +15,10 @@ function App() {
   const [token, setToken] = useLocalStorageState('ExtraPointersToken', null )
   const [username, setUsername] =  useLocalStorageState('ExtraPointersUsername', '')
 
+  const goHome = () => {
+    window.location.reload(false)
+  }
+
   const setAuth = (username, token) => {
     setToken(token)
     setUsername(username)
@@ -35,7 +39,9 @@ function App() {
       )
       .then(() =>
         // log out in React
-        setAuth('', null)
+        setAuth('', null),
+        goHome()
+
       )
   }
 
@@ -63,7 +69,7 @@ function App() {
             <Route path="/Login"
             element={<Login setAuth={setAuth} isLoggedIn={isLoggedIn} />} />
             <Route path='/user/questions' element={<ProfilePage  token={token} isLoggedIn={isLoggedIn}/>} />
-            <Route path="/Login/Register" element={<Register setAuth={setAuth} isLoggedIn={isLoggedIn} />} />
+            <Route path="/Register" element={<Register setAuth={setAuth} isLoggedIn={isLoggedIn} />} />
           </Routes>          
     </BrowserRouter>
     </>
