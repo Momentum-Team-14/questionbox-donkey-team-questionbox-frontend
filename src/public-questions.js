@@ -19,16 +19,20 @@ export const PublicQuestions = () => {
     if (questions){
         return (
             <>
-            <div className="usersQuestions" style={{width: '50%', margin: 'auto', padding:'10px', alignContent: 'center', border:'solid', borderColor: 'grey'}}>
+            <div>
+            <h1 style={{color:'green', textAlign:'center' }}>FANTASY FOOTBALL QUESTIONS</h1>
+            <div className="usersQuestions" style={{width: '50%', margin: 'auto', marginTop:'30px', padding:'20px', alignContent: 'center'}}>
             {questions.map((questionList) => (
-                <div style={{borderTop: 'dashed' , borderColor:'grey'}}>
+                <div style={{borderTop: 'dashed', borderBottom:'dashed', borderRight:'solid', borderLeft:'solid', borderColor:'green', textAlign:'center'}}>
                     <Link
                         to={`/questions/${questionList.pk}`}
-                        key={questionList.pk}>
-                    <h1>{questionList.question_title}</h1></Link>
+                        key={questionList.pk}
+                        style={{textDecoration:'none'}}>
+                    <h1 style={{color:'green'}}>{questionList.question_title}</h1></Link>
                     <p>{questionList.question_field}</p>
-                    <p className='showUser' style={{ fontSize:'.5em' }}>By: {questionList.user}</p>
+                    <p className='showUser' style={{ fontSize:'.5em' }}>By: <strong>{questionList.user}</strong></p>
                 </div>))}
+            </div>
             </div>
         </>)}
 }
