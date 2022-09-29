@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 // import { Routes, Route, Link } from "react-router-dom";
->>>>>>> main
 import './App.css';
 import Navbar from './Navbar/Navbar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
@@ -12,10 +9,6 @@ import {PublicQuestions} from './public-questions'
 
 function App() {
   return (
-<<<<<<< HEAD
-
-)}
-=======
     <Router>
           <Navbar />
           <Routes>
@@ -38,6 +31,5 @@ function App() {
     </Router>
   )
 }
->>>>>>> main
 
 export default App;
