@@ -6,6 +6,9 @@ import { Link } from 'react-router-dom';
 import { AskQuestion } from './ask-question'
  
 export const PublicQuestions = () => {
+
+
+export const PublicQuestions = ({token}) => {
     const [questions, setQuestions] = useState('')
     
     useEffect(() => {
@@ -25,6 +28,14 @@ export const PublicQuestions = () => {
             </div>
             <h1 style={{color:'green', textAlign:'center' }}>FANTASY FOOTBALL QUESTIONS</h1>
             <div className="usersQuestions" style={{width: '50%', margin: 'auto', marginTop:'30px', padding:'20px', alignContent: 'center'}}>
+                <div>
+                    <h1 style={{color:'green', textAlign:'center',  }}>🏈 FANTASY FOOTBALL QUESTIONS 🏈</h1>
+                </div>
+                <div>
+                    <AskQuestion token={'2dc43cc797e571669d4ee81fb0fbbea3bb8de2c1'}/>
+                </div>
+
+            <div className="usersQuestions" style={{width: '70%', margin: 'auto', marginTop:'30px', padding:'20px', alignContent: 'center', height: '500px', overflow:'scroll', marginBottom:'50px'}}>
             {questions.map((questionList) => (
                 <div style={{borderTop: 'dashed', borderBottom:'dashed', borderRight:'solid', borderLeft:'solid', borderColor:'green', textAlign:'center'}}>
                     <Link

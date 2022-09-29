@@ -7,7 +7,7 @@ import { Navigate } from 'react-router-dom'
 
 
 
-const PostAnswers = ({ token }) => {
+export const PostAnswers = ({ token }) => {
     const [answer] = useState('')
     const [postAnswer, setPostAnswer] = useState('')
     const [submitted, setSubmitted] = useState(false)
@@ -16,12 +16,9 @@ const PostAnswers = ({ token }) => {
     
     const handleSubmit = (e) => {
         e.preventDefault()
-        // axios.get('https://team-question-box.herokuapp.com/questions/' [questions.pk]);
-        // .then res => {
             axios
             .post('https://team-question-box.herokuapp.com/answers/',
             {
-                // <link to={"/link/" + props.question.pk}</link>
                 answers_field: postAnswer,
             },
             {
@@ -68,4 +65,3 @@ const PostAnswers = ({ token }) => {
             </div>
         )}
         
-export default PostAnswers

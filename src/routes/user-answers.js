@@ -24,7 +24,7 @@ if (userAnswers) {
     return (
         <>
             <div>
-                <h1 style={{marginLeft:'30px'}}> Your Answers </h1>
+                <h1 style={{marginLeft:'30px', color:'green', textAlign:'center'}}> Your Answers </h1>
                 <div style={{height: '500px', overflow:'scroll'}}>
                 {userAnswers.map((listOfAnswers) => (
                     <div style={{textAlign:'center', marginLeft:'30px', borderTop: 'dashed', borderLeft:'solid', borderBottom:'dashed', borderRight:'solid', borderColor:'grey'}}>
