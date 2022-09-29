@@ -16,7 +16,7 @@ export const AskQuestion = ({ token }) => {
     const [submitted, setSubmitted] = useState(false)
     const [error, setError] = useState(false)
         
-    const handleSubmit = (e) => {
+    const handleSubmit = ((e) => {
         e.preventDefault()
         axios
             .post('https://team-question-box.herokuapp.com/questions/', 
@@ -36,20 +36,9 @@ export const AskQuestion = ({ token }) => {
                 setAskQuestionText('')
             }) 
             .catch((err) => console.log(err))
-        }
+        })
             
-        // if (submitted) {
-        //     return <Navigate to="/questions/" />
-        // }
         
-        const handleChange = (inputType, e) => {
-            if (inputType === 'question_title') {
-                setTitle(e.target.value)
-            }
-            if (inputType === 'question_field') {
-                setAskQuestionText(e.target.value)
-            }
-        } 
 
         const clickConfirm =() => {
             alert('Thanks for your question')

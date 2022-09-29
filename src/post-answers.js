@@ -7,7 +7,7 @@ import { Navigate } from 'react-router-dom'
 
 
 
-export const PostAnswers = ({ token }) => {
+export const PostAnswers = ({ qId, token }) => {
     const [answer] = useState('')
     const [postAnswer, setPostAnswer] = useState('')
     const [submitted, setSubmitted] = useState(false)
@@ -19,7 +19,8 @@ export const PostAnswers = ({ token }) => {
             axios
             .post('https://team-question-box.herokuapp.com/answers/',
             {
-                answers_field: postAnswer,
+                answer_field: postAnswer,
+                question: qId,
             },
             {
                 headers: {
@@ -34,14 +35,6 @@ export const PostAnswers = ({ token }) => {
             .catch((err) => console.log(err))
         }
         
-        // if (submitted) {
-            //     return <Navigate to="/questions/" />
-            // }
-            
-            const handleChange = (inputType, e) => {
-                if (inputType === 'answers_field') 
-                setPostAnswer(e.target.value)
-            }
             
             return (
                 <div className="askQuestionPage"> 

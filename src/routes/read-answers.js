@@ -43,7 +43,7 @@ export const ReadAnswers = ({token}) => {
                                 <AnswersToQuestions qId={qId} token={'2dc43cc797e571669d4ee81fb0fbbea3bb8de2c1'}/>
                             </div>
                             <div>
-                                <PostAnswers token={'2dc43cc797e571669d4ee81fb0fbbea3bb8de2c1'}/>
+                                <PostAnswers qId={qId} token={'2dc43cc797e571669d4ee81fb0fbbea3bb8de2c1'}/>
                             </div>
                         </div>
                     </div> 
