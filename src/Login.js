@@ -38,10 +38,12 @@ export const Login = ({setAuth}) => {
     
     return (  
         <>
+        <div style={{border:'solid', margin:'auto'}}>
         <h1>Sign In</h1>
         <form id="login-form" onSubmit={handleSubmit}>
             <label htmlFor="username">Username: </label>
             <input 
+                style={{maxWidth:'100px'}}
                 id="username"
                 onChange={(e) => setUsername(e.target.value)}
                 type="text"
@@ -55,6 +57,7 @@ export const Login = ({setAuth}) => {
 
 <label htmlFor="password">Password: </label>
             <input 
+                style={{maxWidth:'100px'}}
                 id="password"
                 onChange={(e) => setPassword(e.target.value)}
                 type="password"
@@ -64,14 +67,13 @@ export const Login = ({setAuth}) => {
                 <br />
                 <br />
 
-                <button>Sign In</button>
+                <button style={{borderRadius:'10px'}}>Sign In</button>
         </form>
             <br />
-            Not a member?
             <div className="register-link">
             <a href="./Register">Sign Up</a>
             </div>
-        
+        </div>
         </>
     )
 }

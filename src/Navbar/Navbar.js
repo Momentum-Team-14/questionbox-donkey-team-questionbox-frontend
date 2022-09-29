@@ -20,8 +20,8 @@ const Navbar = ({ handleLogout, token}) => {
                 <NavLink to="/user/questions" >
                     Profile
                 </NavLink>
-                <NavLink to="/search" >
-                    Search
+                <NavLink to="/searchquestion" >
+                    Questions Search
                 </NavLink>
             <NavBtn>
                 <NavBtnLink to="/Login">Sign In</NavBtnLink>

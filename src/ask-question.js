@@ -4,7 +4,8 @@ import { e } from 'react'
 import { username, password, label } from 'react'
 import { Input } from './Forms'
 import { Navigate } from 'react-router-dom'
-import { click } from '@testing-library/user-event/dist/click'
+export default 'AskQuestion'
+// import { click } from '@testing-library/user-event/dist/click'
 
 
 
@@ -37,11 +38,7 @@ export const AskQuestion = ({ token }) => {
             .catch((err) => console.log(err))
         })
             
-        
-
-        const clickConfirm =() => {
-            alert('Thanks for your question')
-        };
+    
 
         return (
             <div className="askQuestionPage"> 
@@ -52,6 +49,7 @@ export const AskQuestion = ({ token }) => {
                     <label>Question Title:</label>
                     <input 
                         placeholder="Type the TITLE of your question here..." 
+                        required
                         onChange={(e) => {
                             setTitle(e.target.value)
                     }}
@@ -61,16 +59,14 @@ export const AskQuestion = ({ token }) => {
                     <label>Ask Question:</label>
                     <textarea 
                         placeholder="Type your QUESTION here..." 
+                        required
                         onChange={(e) => {
                             setAskQuestionText(e.target.value)
                         }} 
                     />
                 </div>
                         <div>
-                        <button onClick={() => {
-                            handleSubmit();
-                            clickConfirm();}}
-                        >Submit Question</button>
+                        <button>Submit Question</button>
                         </div>
                     </form>
                 </div>
