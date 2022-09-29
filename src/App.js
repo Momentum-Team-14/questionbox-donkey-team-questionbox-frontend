@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Login from './Login';
 import {ReadAnswers} from "./routes/read-answers"
 import {PublicQuestions} from './public-questions'
+import { ProfilePage } from './routes/profile-page';
 
 
 function App() {
@@ -23,10 +24,9 @@ function App() {
               </main>
             }
           /> 
-          </Routes>
-          <Routes>
             <Route path="/Login"
             element={<Login />} />
+            <Route path='/user/questions' element={<ProfilePage  token={'2dc43cc797e571669d4ee81fb0fbbea3bb8de2c1'}/>} />
           </Routes>          
     </Router>
   )
