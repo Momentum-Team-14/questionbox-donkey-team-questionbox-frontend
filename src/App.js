@@ -8,6 +8,7 @@ import {PublicQuestions} from './public-questions'
 import { ProfilePage } from './routes/profile-page';
 import useLocalStorageState from 'use-local-storage-state';
 import { Register } from './Register';
+import { SearchPage } from './search-page';
 
 function App() {
   const [token, setToken] = useLocalStorageState('ExtraPointersToken', null )
@@ -41,6 +42,7 @@ function App() {
             element={<Login setAuth={setAuth} />} />
             <Route path='/user/questions' element={<ProfilePage  token={'2dc43cc797e571669d4ee81fb0fbbea3bb8de2c1'}/>} />
             <Route path="/Login/Register" element={<Register />} />
+            <Route path='/questions' element={<SearchPage />} />
           </Routes>          
     </BrowserRouter>
     </>

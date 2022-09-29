@@ -19,8 +19,8 @@ const Navbar = () => {
                 <NavLink to="/user/questions" >
                     Profile
                 </NavLink>
-                <NavLink to="/search" >
-                    Search
+                <NavLink to="/questions" >
+                    Questions Search
                 </NavLink>
             <NavBtn>
                 <NavBtnLink to="/Login">Sign In</NavBtnLink>
