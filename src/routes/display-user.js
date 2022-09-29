@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useState } from "react"
 import axios from 'axios'
 
-export const DisplayUser = ({token}) => {
+export const DisplayUser = ({token, isLoggedIn}) => {
     const [userDisplay, setUserDisplay] = useState('')
 
     useEffect(() => {
