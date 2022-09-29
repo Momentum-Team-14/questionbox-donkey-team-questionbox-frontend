@@ -1,35 +1,46 @@
 import { useEffect } from 'react'
 import { useState } from "react"
 import axios from 'axios'
-import {Link} from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import PublicQuestions from './public-questions'
 
 export const QuestionsSearchPage =() => {
-    const [questions, setQuestions] = useState('')
-    
-    useEffect(() => {
-    axios
-    .get('https://team-question-box.herokuapp.com/questions/', )
-    .then((res) => 
-            setQuestions(res.data)) 
-    }, [])
+    const [searchQuestions, setSearchQuestions] = useState('')
+    // const [search] = useParams()
     
 
-    if (questions) {
-        return (  
+    // const perfSearch = ((e) => {
+    // e.preventDefault()
+    useEffect (() => {
+    axios
+            .get('https://team-question-box.herokuapp.com/questions/?search=Lions' )
+            .then((res) => 
+                setSearchQuestions(res.data)) 
+    },
+    [])
+    
+    if (searchQuestions) {
+
+    return ( 
         <>
+        <form> </form>
+        <div>
+            <label>Search Questions</label>
+            <textarea
+            placeHolder="Search Here..."
+            required
+            onChange={(e) => {
+                setSearchQuestions (e.target.value)
+            }
+            }    
+            /> 
+        </div>
+        {searchQuestions.map((find) => (
+        <div>
             <div>
-                <div style={{ display:'flex',  flexDirection:'row'  }}>
-                    <div>
-                        <Link
-                        to={`/Questions`}
-                        key={question_field}
-                        style={{textDecoration:'none'}}>
-                        <h1 style={{color:'green'}}>{PublicQuestions}</h1></Link>
-                        </div>
-                        <div style={{marginLeft:'100px'}}>
-                        </div>
-                    </div>
-            </div>    
-        </>
-    )}}
+                <p>{find.question_title}</p>
+                <p>{find.question_field}</p> 
+            </div>
+        </div> 
+        )
+    )}</>)}}
