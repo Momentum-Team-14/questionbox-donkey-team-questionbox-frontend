@@ -18,11 +18,12 @@
   text-align: center;
   margin-top: 5px;
   color:green;
+  margin:auto;
 }
 
 .aqContainer label {
   font-size: 25px;
-  margin-left: 40%;
+  margin:auto;
 }
 
 
@@ -37,7 +38,7 @@
   background-color: green;
   border: auto;
   color:white;
-  margin-left: 40%;
+  margin:auto;
 }
 
 input, 
