@@ -5,12 +5,9 @@ import { BrowserRouter as Router, Routes, Route, useNavigate, BrowserRouter } fr
 import { Login } from './Login';
 import {ReadAnswers} from "./routes/read-answers"
 import {PublicQuestions} from './public-questions'
-import axios from 'axios';
+import { ProfilePage } from './routes/profile-page';
+import useLocalStorageState from 'use-local-storage-state';
 import { Register } from './Register';
-import { useState } from 'react';
-import { useEffect } from 'react';
-import useLocalStorageState from 'use-local-storage-state'
-
 
 function App() {
   const [token, setToken] = useLocalStorageState('ExtraPointersToken', null )
@@ -30,9 +27,8 @@ function App() {
       </header>
           <Routes>
             <Route path="/"
-            element={<PublicQuestions />}/>
-            <Route path="/questions/:qId" element={<ReadAnswers/>} />
-
+            element={<PublicQuestions token={'2dc43cc797e571669d4ee81fb0fbbea3bb8de2c1'}/>}/>
+            <Route path="/questions/:qId" element={<ReadAnswers token={'2dc43cc797e571669d4ee81fb0fbbea3bb8de2c1'}/>} />
           <Route
             path="*"
             element={
@@ -42,9 +38,9 @@ function App() {
             }
           /> 
             <Route path="/Login"
-            element={<Login setAuth={setAuth}/>} />
-            <Route path="/Register"
-            element={<Register setAuth={setAuth} />} />
+            element={<Login setAuth={setAuth} />} />
+            <Route path='/user/questions' element={<ProfilePage  token={'2dc43cc797e571669d4ee81fb0fbbea3bb8de2c1'}/>} />
+            <Route path="/Login/Register" element={<Register />} />
           </Routes>          
     </BrowserRouter>
     </>

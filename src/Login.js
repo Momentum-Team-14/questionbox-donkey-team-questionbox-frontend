@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom"
+import { Register } from "./Register";
 
 export const Login = ({setAuth}) => {
     const [username, setUsername] = useState('')
@@ -62,7 +63,7 @@ export const Login = ({setAuth}) => {
             <br />
             Not a member?
             <div className="register-link">
-                <a href="Register">Sign Up</a>
+                <Link to="./Register">Sign Up</Link>
             </div>
         
         </>
