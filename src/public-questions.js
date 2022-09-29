@@ -25,7 +25,7 @@ export const PublicQuestions = ({token}) => {
                     <h1 style={{color:'green', textAlign:'center',  }}>🏈 FANTASY FOOTBALL QUESTIONS 🏈</h1>
                 </div>
                 <div>
-                    <AskQuestion token={'2dc43cc797e571669d4ee81fb0fbbea3bb8de2c1'}/>
+                    <AskQuestion token={token}/>
                 </div>
 
             <div className="usersQuestions" style={{width: '70%', margin: 'auto', marginTop:'30px', padding:'20px', alignContent: 'center', height: '500px', overflow:'scroll', marginBottom:'50px'}}>

@@ -29,11 +29,11 @@ export const ProfilePage = ({token}) => {
             </div>
             <div style={{ display:'flex',  flexDirection:'row'  }}>
                 <div>
-                    <AllUserQuestions token={'2dc43cc797e571669d4ee81fb0fbbea3bb8de2c1'}/>
+                    <AllUserQuestions token={token}/>
                 </div>
             
                 <div style={{marginLeft:'100px'}}>
-                    <UserAnswerList token={'2dc43cc797e571669d4ee81fb0fbbea3bb8de2c1'}/>
+                    <UserAnswerList token={token}/>
                 </div>
             </div>
         </div>
