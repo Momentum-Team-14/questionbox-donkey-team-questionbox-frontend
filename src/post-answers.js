@@ -7,7 +7,7 @@ import { Navigate } from 'react-router-dom'
 
 
 
-export const PostAnswers = ({ qId, token }) => {
+export const PostAnswers = ({ qId, token, clickConfirm }) => {
     const [answer] = useState('')
     const [postAnswer, setPostAnswer] = useState('')
     const [submitted, setSubmitted] = useState(false)
@@ -35,7 +35,6 @@ export const PostAnswers = ({ qId, token }) => {
             .catch((err) => console.log(err))
         }
         
-            
             return (
                 <div className="askQuestionPage"> 
                 <div className="aqContainer">
@@ -44,14 +43,15 @@ export const PostAnswers = ({ qId, token }) => {
                     <h1>Post Your Answer</h1>              
                     <label>Answers:</label>
                     <textarea 
-                        placeholder="Type your ANSWER here..." 
+                        placeholder="Type your ANSWER here..."
+                        required 
                         onChange={(e) => {
                             setPostAnswer(e.target.value)
                         }} 
                         />
                 </div>
                     <div>
-                    <button onClick={handleSubmit}>Submit Answer</button>
+                    <button>Submit Answer</button>
                     </div>
                 </form>
                 </div>

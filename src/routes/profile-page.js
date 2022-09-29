@@ -7,7 +7,7 @@ import { AllUserQuestions } from './user-questions'
 import { DisplayUser } from './display-user'
 
 
-export const ProfilePage = ({token}) => {
+export const ProfilePage = ({token, isLoggedIn}) => {
     const [userProfile, setUserProfile] = useState('')
 
     useEffect(() => {
@@ -20,6 +20,21 @@ export const ProfilePage = ({token}) => {
     .then((res) => setUserProfile(res.data))
 }, [token])
 
+if (!isLoggedIn){
+    return(
+        <div style={{border:'solid', textAlign:'center'}}>
+        <p>Please Log In To View Your Profile</p>
+        <div>
+        <Link 
+        to={'/Login'}
+        style={{textDecoration:'none', fontSize:'3rem', color:'green'}}
+        >Log In
+        </Link>
+        </div>
+        </div>)
+} 
+
+else{
 
     return (
         <>
@@ -38,4 +53,4 @@ export const ProfilePage = ({token}) => {
             </div>
         </div>
         </>
-    )}
+    )}}

@@ -4,9 +4,10 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import { AnswersToQuestions } from './answer-list'
 import { PostAnswers } from '../post-answers'
+import { Link } from 'react-router-dom'
 
 
-export const ReadAnswers = ({token}) => {
+export const ReadAnswers = ({token, isLoggedIn}) => {
     const [oneQuestion, setOneQuestion] = useState('')
     const {qId} = useParams()
 
@@ -20,6 +21,23 @@ export const ReadAnswers = ({token}) => {
         .then((res) => setOneQuestion(res.data))
         
     }, [qId, token])
+
+    if (!isLoggedIn){
+        return(
+            <div style={{border:'solid', textAlign:'center'}}>
+            <p>Please Log In To Post Questions and Answers</p>
+            <div>
+            <Link 
+            to={'/Login'}
+            style={{ fontSize:'3rem', textDecoration:'none', color:'green'}}
+            >Log In
+            
+            </Link>
+            </div>
+            </div>)
+    } 
+
+    else{
 
         return (
             <>
@@ -49,4 +67,4 @@ export const ReadAnswers = ({token}) => {
                     </div> 
                 </div> 
             </>)
-}
+}}
