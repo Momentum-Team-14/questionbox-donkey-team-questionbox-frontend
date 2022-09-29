@@ -1,6 +1,9 @@
 import {Nav, NavLink, Bars, NavMenu, NavBtn, NavBtnLink} from './NavbarElements'
+import {Link} from 'react-router-dom'
 
 const Navbar = () => {
+    
+
     return (  
         <>
         <Nav>
@@ -8,17 +11,16 @@ const Navbar = () => {
                 <h1>EXTRA POINTERS</h1>
             </NavLink>
             <NavMenu>
-                <NavLink to="/about" activeStyle>
+                <NavLink to="/about">
                     About
                 </NavLink>
-                <NavLink to="/search" activeStyle>
+                <NavLink to="/search">
                     Search
                 </NavLink>
             <NavBtn>
-                <NavBtnLink to="/Login">Sign In</NavBtnLink>
-            </NavBtn>   
+                <NavBtnLink to="/Login">Log In</NavBtnLink>
+            </NavBtn>
             </NavMenu>
-
         </Nav>
         </>
     )
