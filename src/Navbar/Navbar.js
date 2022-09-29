@@ -1,6 +1,7 @@
 import {Nav, NavLink, Bars, NavMenu, NavBtn, NavBtnLink} from './NavbarElements'
 import {Link} from 'react-router-dom'
 
+
 const Navbar = () => {
     
 
@@ -20,6 +21,7 @@ const Navbar = () => {
             <NavBtn>
                 <NavBtnLink to="/Login">Log In</NavBtnLink>
             </NavBtn>
+
             </NavMenu>
         </Nav>
         </>
