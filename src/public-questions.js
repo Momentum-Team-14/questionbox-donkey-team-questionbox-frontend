@@ -3,8 +3,8 @@ import { useState } from "react"
 import axios from 'axios'
 // import { ReadAnswers } from './routes/readanswers'
 import { Link } from 'react-router-dom';
-
-
+import { AskQuestion } from './ask-question'
+ 
 export const PublicQuestions = () => {
     const [questions, setQuestions] = useState('')
     
@@ -20,6 +20,9 @@ export const PublicQuestions = () => {
         return (
             <>
             <div>
+            <div>
+                <AskQuestion token={'2dc43cc797e571669d4ee81fb0fbbea3bb8de2c1'} />
+            </div>
             <h1 style={{color:'green', textAlign:'center' }}>FANTASY FOOTBALL QUESTIONS</h1>
             <div className="usersQuestions" style={{width: '50%', margin: 'auto', marginTop:'30px', padding:'20px', alignContent: 'center'}}>
             {questions.map((questionList) => (

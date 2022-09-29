@@ -4,8 +4,7 @@ import { e } from 'react'
 import { username, password, label } from 'react'
 import { Input } from './Forms'
 import { Navigate } from 'react-router-dom'
-
-
+export default 'AskQuestion'
 
 
 const AskQuestion = ({ token }) => {
@@ -81,4 +80,3 @@ const AskQuestion = ({ token }) => {
         )
         }
 
-export default AskQuestion
