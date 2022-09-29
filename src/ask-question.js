@@ -5,7 +5,7 @@ import { username, password, label } from 'react'
 import { Input } from './Forms'
 import { Navigate } from 'react-router-dom'
 export default 'AskQuestion'
-import { click } from '@testing-library/user-event/dist/click'
+// import { click } from '@testing-library/user-event/dist/click'
 
 
 
