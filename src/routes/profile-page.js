@@ -4,6 +4,7 @@ import axios from 'axios'
 import { UserAnswerList } from './user-answers'
 import {Link} from 'react-router-dom'
 import { AllUserQuestions } from './user-questions'
+import { DisplayUser } from './display-user'
 
 
 export const ProfilePage = ({token}) => {
@@ -24,7 +25,7 @@ export const ProfilePage = ({token}) => {
         <>
         <div>
             <div style={{textAlign:'center'}}>
-                <h1 style={{color:'green'}}> Hello {userProfile.user}</h1>
+                <h1 style={{color:'green'}}>Profile For: <mark><DisplayUser token={token}/></mark></h1>
             </div>
             <div style={{ display:'flex',  flexDirection:'row'  }}>
                 <div>

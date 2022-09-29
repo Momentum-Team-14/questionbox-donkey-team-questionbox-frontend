@@ -19,4 +19,3 @@ export const Input = () => {
   )
 }
 
-export default Forms;
