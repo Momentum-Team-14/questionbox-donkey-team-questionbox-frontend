@@ -71,6 +71,7 @@ export const Login = ({setAuth}) => {
         </form>
             <br />
             <div className="register-link">
+                Don't have an account? <br />
             <a href="./Register">Sign Up</a>
             </div>
         </div>
