@@ -13,4 +13,4 @@ Once logged in, users can:
 - when finished, users can logout and will have limited access to the website
 - when logged out, users can only see the questions and cannot see a profile nor post a question or an answer. 
 
-Click [here](extrapointers.netlify.app) to visit our Fantasy Football fan site.
+Click [here](https://extrapointers.netlify.app) to visit our Fantasy Football fan site https://extrapointers.netlify.app
