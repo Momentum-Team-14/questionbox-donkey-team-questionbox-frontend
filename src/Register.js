@@ -1,50 +1,50 @@
 import { useState } from "react"
 import axios from "axios"
-import { useNavigate } from "react-router-dom"
+import { Navigate } from "react-router-dom"
+import { ProfilePage } from "./routes/profile-page"
 
 
-export const Register = (setAuth) => {
-        const navigate = useNavigate()
+export const Register = ({setAuth, isLoggedIn}) => {
         const [username, setUsername] = useState('')
         const [password, setPassword] = useState('')
         const [email, setEmail] = useState('')
         const [error, setError] = useState(null)
-        const [success, setSuccess] = useState(false)
     
         const handleSubmit = (e) => {
-            console.log(username, password)
-        e.preventDefault()
+            // console.log(username, password)
+            e.preventDefault()
             console.log('handle submit')
-        axios
-            .post('https://team-question-box.herokuapp.com/auth/users/', {
-                username: username,
-                password: password,
-                email: email,
-            })
-            .then(() =>
-                axios.post(
-                'https://team-question-box.herokuapp.com/auth/token/login',
-                {
-                username: username,
-                password: password,
-                }
-            )
-            )
-            .then((res) => {
-                console.log(res.data.auth_token)
-                setAuth(username, res.data.auth_token)
-                    setSuccess(true)
-            })
+            axios
+                .post('https://team-question-box.herokuapp.com/auth/users/', {
+                    username: username,
+                    password: password,
+                    email: email,
+                })
+                .then(() =>
+                    axios.post(
+                    'https://team-question-box.herokuapp.com/auth/token/login',
+                    {
+                    username: username,
+                    password: password,
+                    }
+                )
+                )
+                .then((res) =>
+                    setAuth(username, res.data.auth_token))
+                    // console.log(res.data.auth_token)
                 
-            .catch((error) => {
-                if (error.response.data.username)
-                    setError(error.response.data.username);
+                .catch((error) => {
+                    if (error.response.data.username)
+                        setError(error.response.data.username);
                 
-                if (error.response.data.password)
-                    setError(error.response.data.password)
-            });
+                    if (error.response.data.password)
+                        setError(error.response.data.password)
+                })
         }
 
+        if (isLoggedIn) {
+            return <Navigate to="/user/questions" />
+        }
 
     return (  
         <>
@@ -63,7 +63,7 @@ export const Register = (setAuth) => {
                 <br />
                 <br />
 
-<label htmlFor="password">Password: </label>
+        <label htmlFor="password">Password: </label>
             
             <input 
                 id="password"
@@ -75,7 +75,7 @@ export const Register = (setAuth) => {
                 <br />
                 <br />
 
-<label htmlFor="email">E-mail: </label>
+        <label htmlFor="email">E-mail: </label>
             
             <input 
                 id="email"
@@ -87,7 +87,10 @@ export const Register = (setAuth) => {
                 <br />
                 <br />
 
-                <button>Sign Up</button>
+                <button
+                type="submit"
+                value="Register"
+                >Sign Up</button>
         </form>
 
         <br />
@@ -96,5 +99,7 @@ export const Register = (setAuth) => {
                 <a href="./Login">Back to Login</a>
             </div>
         </>
+
+        
     )
 }
