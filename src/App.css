@@ -1,0 +1,49 @@
+
+.aqContainer {
+  width: 500px;
+  height: auto;
+  padding: 20px;
+  background-color: black;
+  border-radius: 12px;
+  color: white;
+  margin-top: 30px;
+  align-content: center;
+  margin:auto;
+
+}
+
+
+
+.aqContainer H1 {
+  text-align: center;
+  margin-top: 5px;
+  color:green;
+  margin:auto;
+}
+
+.aqContainer label {
+  font-size: 25px;
+  margin:auto;
+}
+
+
+
+.aqContainer button {
+  margin-top: 20px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  background-color: green;
+  border: auto;
+  color:white;
+  margin:auto;
+}
+
+input, 
+textarea {
+  margin-top: 5px;
+  width: 100%;
+}
+
