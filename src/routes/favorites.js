@@ -13,7 +13,6 @@ export const FavoriteButton = () => {
     const [currentUser, setCurrentUser] = useState(false)
 
 
-
     const postFav = (e) => {
         e.preventDefault()
         useEffect(() =>

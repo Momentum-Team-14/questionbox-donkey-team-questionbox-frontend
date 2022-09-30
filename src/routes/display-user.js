@@ -16,7 +16,7 @@ export const DisplayUser = ({token, isLoggedIn}) => {
 }, [token])
 
     return(
-        <p>{userDisplay.username}</p>
+        <p>{userDisplay.username} </p>
     )
 
 

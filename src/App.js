@@ -15,10 +15,6 @@ function App() {
   const [token, setToken] = useLocalStorageState('ExtraPointersToken', null )
   const [username, setUsername] =  useLocalStorageState('ExtraPointersUsername', '')
 
-  const goHome = () => {
-    window.location.reload(false)
-  }
-
   const setAuth = (username, token) => {
     setToken(token)
     setUsername(username)
@@ -40,7 +36,6 @@ function App() {
       .then(() =>
         // log out in React
         setAuth('', null),
-        goHome()
 
       )
   }
@@ -51,12 +46,16 @@ function App() {
     <>
     <BrowserRouter>
       <header>
-      {<Navbar handleLogout={handleLogout} token={token} isLoggedIn={isLoggedIn} />}
+      <Navbar isLoggedIn={isLoggedIn} handleLogout={handleLogout} token={token} />
       </header>
+
           <Routes>
+
             <Route path="/"
             element={<PublicQuestions token={token} isLoggedIn={isLoggedIn}/>}/>
+
             <Route path="/questions/:qId" element={<ReadAnswers token={token} isLoggedIn={isLoggedIn}/>} />
+
           <Route
             path="*"
             element={
@@ -65,10 +64,14 @@ function App() {
               </main>
             }
           /> 
+
             <Route path='/searchquestion' element={<QuestionsSearchPage token={token} isLoggedIn={isLoggedIn} /> } /> 
+
             <Route path="/Login"
             element={<Login setAuth={setAuth} isLoggedIn={isLoggedIn} />} />
+
             <Route path='/user/questions' element={<ProfilePage  token={token} isLoggedIn={isLoggedIn}/>} />
+
             <Route path="/Register" element={<Register setAuth={setAuth} isLoggedIn={isLoggedIn} />} />
           </Routes>          
     </BrowserRouter>
